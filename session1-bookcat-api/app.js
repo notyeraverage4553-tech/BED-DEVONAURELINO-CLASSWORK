@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const sql = require('mssql');
 const app = express();
@@ -5,10 +7,10 @@ const app = express();
 app.use(express.json());
 
 const dbConfig = {
-    server: 'localhost',
-    database: 'NPbookstore',
-    user: 'PLACEHOLDER',
-    password: 'PLACEHOLDER',
+    server: process.env.DB_SERVER,
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     options: { trustServerCertificate: true }
 };
 
